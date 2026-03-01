@@ -7,7 +7,7 @@ class Main {
             {"Evan Wells", "22248", "User"}, 
             {"Jameson Passmore", "4848", "User"}, 
             {"Joshua Passmore", "0426", "User"}, 
-            {"Guest_123", "1234", "Guest"}
+            {"Guest 123", "1234", "Guest"}
         }; 
         
         Scanner sc = new Scanner(System.in); 
@@ -155,7 +155,8 @@ class Main {
                     } 
                     break; 
                 } 
-case "Guest_123": { 
+                 case "Guest 123": { 
+                     
                     if (password.matches("1234")) { 
                         System.out.println("Welcome, Guest"); 
                         while (true) { 
