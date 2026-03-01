@@ -154,6 +154,27 @@ class Main {
                     } 
                     break; 
                 } 
+case "Guest_123": { 
+                    if (password.matches("1234")) { 
+                        System.out.println("Welcome, Guest"); 
+                        while (true) { 
+                            System.out.println("===== What would you like to do? ====="); 
+                            System.out.println("1. Calculator"); 
+                            System.out.println("2. Rock Paper Scissors"); 
+                            
+                            int action = sc.nextInt(); 
+                            
+                            if (action == 1) { 
+                                accountFunctions(); 
+                            } else if (action == 2) { 
+                                accountFunctions2(); 
+                            } 
+                        } 
+                    } else { 
+                        System.out.println("Wrong Password"); 
+                    } 
+                    break; 
+                } 
                 
                 default: { 
                     System.out.println("Error please enter a proper username"); 
