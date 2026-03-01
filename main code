@@ -1,0 +1,243 @@
+import java.util.*; 
+class Main { 
+    public static void main(String[] args) { 
+        String[][] userCredentials = { 
+            {"Jacob Passmore", "@Baseball15", "Admin"}, 
+            {"Juan Nunez", "7614", "User"}, 
+            {"Evan Wells", "22248", "User"}, 
+            {"Jameson Passmore", "4848", "User"}, 
+            {"Joshua Passmore", "0426", "User"} 
+        }; 
+        
+        Scanner sc = new Scanner(System.in); 
+        
+        System.out.println("Enter Username:"); 
+        String username = sc.nextLine(); 
+        
+        if (username.matches("\\w+ \\w+")) { 
+            System.out.println(); 
+            System.out.println("Enter password:"); 
+            String password = sc.nextLine(); 
+            
+            switch (username) { 
+                
+                case "Jacob Passmore": { 
+                    for (int i = 0; i < userCredentials.length; i++) { 
+                        if (username.matches(userCredentials[i][0])) { 
+                            if (password.matches(userCredentials[i][1])) { 
+                                System.out.println("Hello, Jacob"); 
+                                
+                                while (true) {
+                                    System.out.println("===== What would you like to do? ====="); 
+                                    System.out.println("1. Calculator"); 
+                                    System.out.println("2. Account manager"); 
+                                    System.out.println("3. Rock Paper Scissors"); 
+                                    
+                                    int action = sc.nextInt(); 
+                                    
+                                    if (action == 1) { 
+                                        accountFunctions(); 
+                                    } 
+                                    else if (action == 2) { 
+                                        System.out.println("=============================================================="); 
+                                        System.out.printf("%-20s | %-15s | %-15s%n", "Username", "Password", "Permission"); 
+                                        System.out.println("=============================================================="); 
+                                        
+                                        for (int j = 0; j < userCredentials.length; j++) { 
+                                            System.out.printf("%-20s | %-15s | %-15s%n", 
+                                                userCredentials[j][0], 
+                                                userCredentials[j][1], 
+                                                userCredentials[j][2] 
+                                            ); 
+                                        } 
+                                        
+                                        System.out.println("=============================================================="); 
+                                    } 
+                                    else if (action == 3) { 
+                                        accountFunctions2(); 
+                                    } 
+                                    else { 
+                                        System.out.println("Invalid option."); 
+                                    }
+                                }
+                                
+                            } else { 
+                                System.out.println("Wrong Password"); 
+                            } 
+                        } 
+                    } 
+                    break; 
+                } 
+                
+                case "Juan Nunez": { 
+                    if (password.matches("7614")) { 
+                        System.out.println("Hello, Juan"); 
+                        while (true) { 
+                            System.out.println("===== What would you like to do? ====="); 
+                            System.out.println("1. Calculator"); 
+                            System.out.println("2. Rock Paper Scissors"); 
+                            
+                            int action = sc.nextInt(); 
+                            
+                            if (action == 1) { 
+                                accountFunctions(); 
+                            } else if (action == 2) { 
+                                accountFunctions2(); 
+                            } 
+                        } 
+                    } 
+                    break; 
+                } 
+                
+                case "Evan Wells": { 
+                    if (password.matches("22248")) { 
+                        System.out.println("Hello, Evan"); 
+                        while (true) { 
+                            System.out.println("===== What would you like to do? ====="); 
+                            System.out.println("1. Calculator"); 
+                            System.out.println("2. Rock Paper Scissors"); 
+                            
+                            int action = sc.nextInt(); 
+                            
+                            if (action == 1) { 
+                                accountFunctions(); 
+                            } else if (action == 2) { 
+                                accountFunctions2(); 
+                            } 
+                        } 
+                    } else { 
+                        System.out.println("Wrong Password"); 
+                    } 
+                    break; 
+                } 
+                
+                case "Jameson Passmore": { 
+                    if (password.matches("4848")) { 
+                        System.out.println("Hello, Jameson"); 
+                        while (true) { 
+                            System.out.println("===== What would you like to do? ====="); 
+                            System.out.println("1. Calculator"); 
+                            System.out.println("2. Rock Paper Scissors"); 
+                            
+                            int action = sc.nextInt(); 
+                            
+                            if (action == 1) { 
+                                accountFunctions(); 
+                            } else if (action == 2) { 
+                                accountFunctions2(); 
+                            } 
+                        } 
+                    } else { 
+                        System.out.println("Wrong Password"); 
+                    } 
+                    break; 
+                } 
+                
+                case "Joshua Passmore": { 
+                    if (password.matches("0426")) { 
+                        System.out.println("Hello, Joshua"); 
+                        while (true) { 
+                            System.out.println("===== What would you like to do? ====="); 
+                            System.out.println("1. Calculator"); 
+                            System.out.println("2. Rock Paper Scissors"); 
+                            
+                            int action = sc.nextInt(); 
+                            
+                            if (action == 1) { 
+                                accountFunctions(); 
+                            } else if (action == 2) { 
+                                accountFunctions2(); 
+                            } 
+                        } 
+                    } else { 
+                        System.out.println("Wrong Password"); 
+                    } 
+                    break; 
+                } 
+                
+                default: { 
+                    System.out.println("Error please enter a proper username"); 
+                    break; 
+                } 
+            } 
+        } else { 
+            System.out.println("Error please enter a proper username"); 
+        } 
+    } 
+    
+    public static void accountFunctions() { 
+        Scanner sc2 = new Scanner(System.in); 
+        
+        System.out.println("=== What form of calculation? ==="); 
+        System.out.println("1. Addition"); 
+        System.out.println("2. Subtraction"); 
+        System.out.println("3. Multiplication"); 
+        System.out.println("4. Division"); 
+        
+        int calcOption = sc2.nextInt(); 
+        
+        System.out.println("First number:"); 
+        double num1 = sc2.nextDouble(); 
+        
+        System.out.println("Second number:"); 
+        double num2 = sc2.nextDouble(); 
+        
+        if (calcOption == 1) { 
+            System.out.println("Result: " + (num1 + num2)); 
+        } else if (calcOption == 2) { 
+            System.out.println("Result: " + (num1 - num2)); 
+        } else if (calcOption == 3) { 
+            System.out.println("Result: " + (num1 * num2)); 
+        } else if (calcOption == 4) { 
+            System.out.println("Result: " + (num1 / num2)); 
+        } else { 
+            System.out.println("Invalid option."); 
+        } 
+    } 
+    
+    public static void accountFunctions2() { 
+        Scanner sc2 = new Scanner(System.in); 
+        int gameOption; 
+        
+        do { 
+            System.out.println("=== Select option ==="); 
+            System.out.println("1. Rock"); 
+            System.out.println("2. Paper"); 
+            System.out.println("3. Scissors"); 
+            System.out.println("4. Exit"); 
+            
+            gameOption = sc2.nextInt(); 
+            
+            String playerMove = ""; 
+            
+            if (gameOption == 1) playerMove = "Rock"; 
+            else if (gameOption == 2) playerMove = "Paper"; 
+            else if (gameOption == 3) playerMove = "Scissors"; 
+            else { 
+                return; 
+            } 
+            
+            int randomNumber = (int)(Math.random() * 3) + 1; 
+            String computerMove = ""; 
+            
+            if (randomNumber == 1) computerMove = "Rock"; 
+            else if (randomNumber == 2) computerMove = "Paper"; 
+            else if (randomNumber == 3) computerMove = "Scissors"; 
+            
+            System.out.println("Computer plays: " + computerMove); 
+            
+            if (playerMove.equals(computerMove)) { 
+                System.out.println("It's a tie"); 
+            } else if ( 
+                (playerMove.equals("Rock") && computerMove.equals("Scissors")) || 
+                (playerMove.equals("Paper") && computerMove.equals("Rock")) || 
+                (playerMove.equals("Scissors") && computerMove.equals("Paper")) 
+            ) { 
+                System.out.println("You win"); 
+            } else { 
+                System.out.println("Computer wins"); 
+            } 
+            
+        } while (gameOption < 4); 
+    } 
+}
