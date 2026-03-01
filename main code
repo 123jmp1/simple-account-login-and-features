@@ -6,7 +6,8 @@ class Main {
             {"Juan Nunez", "7614", "User"}, 
             {"Evan Wells", "22248", "User"}, 
             {"Jameson Passmore", "4848", "User"}, 
-            {"Joshua Passmore", "0426", "User"} 
+            {"Joshua Passmore", "0426", "User"}, 
+            {"Guest_123", "1234", "Guest"}
         }; 
         
         Scanner sc = new Scanner(System.in); 
