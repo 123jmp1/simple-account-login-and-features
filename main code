@@ -7,6 +7,7 @@ class Main {
             {"Evan Wells", "22248", "User"}, 
             {"Jameson Passmore", "4848", "User"}, 
             {"Joshua Passmore", "0426", "User"}, 
+            {"Liam De Aguiar", "01232013", "User"}, 
             {"Guest123", "1234", "User"}
         };
         
@@ -20,78 +21,86 @@ class Main {
         String password = sc.nextLine(); 
         
         String accountType = accountLogin(username, password);
-        
 
-        switch (accountType) { 
-                case "Admin": { 
-                    System.out.println("===== What would you like to do? ====="); 
-                    System.out.println("1. Calculator"); 
-                    System.out.println("2. Account manager"); 
-                    System.out.println("3. Rock Paper Scissors"); 
+        switch (accountType) 
+        { 
+            case "Admin": 
+            { 
+                System.out.println("===== What would you like to do? ====="); 
+                System.out.println("1. Calculator"); 
+                System.out.println("2. Account manager"); 
+                System.out.println("3. Rock Paper Scissors"); 
+                                
+                int action = sc.nextInt(); 
+                    
+                if (action == 1) { 
+                    calculator(); 
+                } 
+                else if (action == 2) { 
+                    System.out.println("=============================================================="); 
+                    System.out.printf("%-20s | %-15s | %-15s%n", "Username", "Password", "Permission"); 
+                    System.out.println("=============================================================="); 
                                     
-                    int action = sc.nextInt(); 
-                        
-                    if (action == 1) { 
-                        calculator(); 
+                    for (int j = 0; j < userCredentials.length; j++){
+                        System.out.printf("%-20s | %-15s | %-15s%n", userCredentials[j][0], userCredentials[j][1], userCredentials[j][2]); 
                     } 
-                    else if (action == 2) { 
-                        System.out.println("=============================================================="); 
-                        System.out.printf("%-20s | %-15s | %-15s%n", "Username", "Password", "Permission"); 
-                        System.out.println("=============================================================="); 
-                                        
-                        for (int j = 0; j < userCredentials.length; j++){
-                            System.out.printf("%-20s | %-15s | %-15s%n", userCredentials[j][0], userCredentials[j][1], userCredentials[j][2]); 
-                        } 
-                                        
-                        System.out.println("=============================================================="); 
-                    } 
-                    else if (action == 3) { 
-                        rockPaperScissors(); 
-                    } 
-                    else { 
-                        System.out.println("Invalid option."); 
-                    }
-                    break; 
+                                    
+                    System.out.println("=============================================================="); 
                 } 
-                
-                case "User": 
-                { 
-                                    System.out.println("===== What would you like to do? ====="); 
-                                    System.out.println("1. Calculator"); 
-                                    System.out.println("2. Rock Paper Scissors"); 
-                            
-                                    int action = sc.nextInt(); 
-                                    if (action == 1) { 
-                                        calculator(); 
-                                    } else if (action == 2) 
-                                    {
-                                        rockPaperScissors(); 
-                                    }
-                        break;
-                }        
-
-                default: { 
-                    System.out.println("Error please enter a proper username"); 
-                    break; 
+                else if (action == 3) { 
+                    rockPaperScissors(); 
                 } 
+                else { 
+                    System.out.println("Invalid option."); 
+                }
+                break; 
             } 
+            
+            case "User": 
+            { 
+                System.out.println("===== What would you like to do? ====="); 
+                System.out.println("1. Calculator"); 
+                System.out.println("2. Rock Paper Scissors"); 
+                                
+                int action = sc.nextInt(); 
+                    
+                if (action == 1) 
+                { 
+                    calculator(); 
+                } 
+                else if (action == 2) 
+                { 
+                    rockPaperScissors();
+                } 
+                else { 
+                    System.out.println("Invalid option."); 
+                }
+                break; 
+            }
+
+            default: 
+            { 
+                System.out.println("Error please enter a proper username"); 
+                break; 
+            } 
+        } 
     } 
     
     public static void calculator() { 
         Scanner sc2 = new Scanner(System.in); 
             
-            System.out.println("=== What form of calculation? ==="); 
-            System.out.println("1. Addition"); 
-            System.out.println("2. Subtraction"); 
-            System.out.println("3. Multiplication"); 
-            System.out.println("4. Division"); 
+        System.out.println("=== What form of calculation? ==="); 
+        System.out.println("1. Addition"); 
+        System.out.println("2. Subtraction"); 
+        System.out.println("3. Multiplication"); 
+        System.out.println("4. Division"); 
         
         int calcOption = sc2.nextInt(); 
         
-            System.out.println("First number:"); 
+        System.out.println("First number:"); 
         double num1 = sc2.nextDouble(); 
         
-            System.out.println("Second number:"); 
+        System.out.println("Second number:"); 
         double num2 = sc2.nextDouble(); 
         
         if (calcOption == 1) { 
@@ -120,7 +129,7 @@ class Main {
             
             gameOption = sc2.nextInt(); 
             
-                String playerMove = ""; 
+            String playerMove = ""; 
             
             if (gameOption == 1) playerMove = "Rock"; 
             else if (gameOption == 2) playerMove = "Paper"; 
@@ -135,7 +144,8 @@ class Main {
             if (randomNumber == 1) computerMove = "Rock"; 
             else if (randomNumber == 2) computerMove = "Paper"; 
             else if (randomNumber == 3) computerMove = "Scissors";
-                System.out.println("Computer plays: " + computerMove); 
+            
+            System.out.println("Computer plays: " + computerMove); 
             
             if (playerMove.equals(computerMove)){ 
                 System.out.println("It's a tie"); 
@@ -151,20 +161,18 @@ class Main {
                 System.out.println("Computer wins"); 
             } 
             
-        }
-        while (gameOption < 4);{
-            
-        }
+        } while (gameOption < 4);
     } 
+
     public static String accountLogin(String user, String pass) { 
         
-        String type = new String();
+        String type = "";
         
         for (int i = 0; i < userCredentials.length; i++) { 
-            if (user.matches(userCredentials[i][0])) { 
-                if (pass.matches(userCredentials[i][1])) {
+            if (user.equals(userCredentials[i][0])) { 
+                if (pass.equals(userCredentials[i][1])) {
                     type = userCredentials[i][2];
-                     System.out.println("Hello " + type + user);
+                    System.out.println("Hello " + type + " " + user);
                     break;
                 } 
                 else { 
@@ -172,11 +180,7 @@ class Main {
                     break;
                 }            
             }
-            else { 
-                System.out.println("User Not Found");
-                break;
-            }            
         }
-    return type;    
+        return type;    
     } 
-} 
+}
