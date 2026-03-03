@@ -149,11 +149,11 @@ public static void RNG()
 {
 Scanner sc = new Scanner(System.in); 
     System.out.println("Min number:"); 
-        int min = sc.nextInt(); 
+        double min = sc.nextInt(); 
             System.out.println("Max number:");
-        int max = sc.nextInt(); 
+        double max = sc.nextInt(); 
         Random rand = new Random();
-         int result = rand.nextInt((max - min) + 1) + min; 
+         double result = rand.nextdouble((max - min) + 1) + min; 
             System.out.println("Random number: " + result); 
     
 }
@@ -307,6 +307,3 @@ Scanner sc = new Scanner(System.in);
         return type;    
     } 
 }
-
-
-
