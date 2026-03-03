@@ -1,5 +1,4 @@
 import java.util.*; 
-  import java.util.Random;
 public class Main {
     
     public static String[][] userCredentials = { 
@@ -36,7 +35,6 @@ public class Main {
                     System.out.println("2. Account manager"); 
                     System.out.println("3. Rock Paper Scissors"); 
                     System.out.println("4. Black Jack"); 
-                    System.out.println("5. Random Number Generator");
                                 
                     int action = sc.nextInt(); 
                         
@@ -63,9 +61,6 @@ public class Main {
                     else if (action == 4) {
                         blackjack();
                     }
-                    else if (action == 5) {
-                        RNG();
-                    }
                     else { 
                         System.out.println("Invalid option."); 
                     }
@@ -82,8 +77,7 @@ public class Main {
                     System.out.println("===== What would you like to do? ====="); 
                     System.out.println("1. Calculator"); 
                     System.out.println("2. Rock Paper Scissors"); 
-                    System.out.println("3. Black Jack"); 
-                    System.out.println("4. Random Number Generator");
+                    System.out.println("3. Hit/Stand Game"); 
                                 
                     int action = sc.nextInt(); 
                         
@@ -95,9 +89,6 @@ public class Main {
                     } 
                     else if (action == 3) {
                         blackjack();
-                    }
-                    else if (action == 4) {
-                        RNG();
                     }
                     else { 
                         System.out.println("Invalid option."); 
@@ -143,36 +134,6 @@ public class Main {
             System.out.println("Invalid option."); 
         } 
     } 
-  
-
-public static void RNG() 
-{
-Scanner sc = new Scanner(System.in); 
-    System.out.println("Min number:"); 
-        int min = sc.nextInt(); 
-            System.out.println("Max number:");
-        int max = sc.nextInt(); 
-        Random rand = new Random();
-        if (min<2000000000)
-        {
-           if (max<2000000000)
-           {
-         int result = rand.nextInt((max - min) + 1) + min; 
-            System.out.println("Random number: " + result); 
-           }
-           else
-           {
-           System.out.println("error number can't be more than 2bil");
-           RNG();
-           }
-               
-        }   
-         else
-         {
-             System.out.println("error number can't be more than 2bil");
-             RNG();
-         }
-}
     
     public static void rockPaperScissors() { 
         Scanner sc2 = new Scanner(System.in); 
