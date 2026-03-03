@@ -1,4 +1,5 @@
 import java.util.*; 
+  import java.util.Random;
 public class Main {
     
     public static String[][] userCredentials = { 
@@ -7,7 +8,7 @@ public class Main {
             {"Evan Wells", "22248", "User"}, 
             {"Jameson Passmore", "4848", "User"}, 
             {"Joshua Passmore", "0426", "User"}, 
-            {"31owls", "01232013", "User"}, 
+            {"31owls", "01232013", "Admin"}, 
             {"Guest123", "1234", "User"}
         };
         
@@ -35,6 +36,8 @@ public class Main {
                     System.out.println("2. Account manager"); 
                     System.out.println("3. Rock Paper Scissors"); 
                     System.out.println("4. Black Jack"); 
+                    System.out.println("5. Random Number Generator");
+                    System.out.println("6. Magic 8 ball");
                                 
                     int action = sc.nextInt(); 
                         
@@ -61,6 +64,13 @@ public class Main {
                     else if (action == 4) {
                         blackjack();
                     }
+                    else if (action == 5) {
+                        RNG();
+                    }
+                    else if (action == 6) {
+                        System.out.println("Outcome:");
+                        magic8Ball();
+                    }
                     else { 
                         System.out.println("Invalid option."); 
                     }
@@ -77,7 +87,9 @@ public class Main {
                     System.out.println("===== What would you like to do? ====="); 
                     System.out.println("1. Calculator"); 
                     System.out.println("2. Rock Paper Scissors"); 
-                    System.out.println("3. Hit/Stand Game"); 
+                    System.out.println("3. Black Jack"); 
+                    System.out.println("4. Random Number Generator");
+                    System.out.println("5. Magic 8 ball");
                                 
                     int action = sc.nextInt(); 
                         
@@ -89,6 +101,13 @@ public class Main {
                     } 
                     else if (action == 3) {
                         blackjack();
+                    }
+                    else if (action == 4) {
+                        RNG();
+                    }
+                    else if (action == 5) {
+                        System.out.println("Outcome:");
+                        magic8Ball();
                     }
                     else { 
                         System.out.println("Invalid option."); 
@@ -134,6 +153,63 @@ public class Main {
             System.out.println("Invalid option."); 
         } 
     } 
+  
+
+public static void RNG() 
+{
+Scanner sc = new Scanner(System.in); 
+    System.out.println("Min number:"); 
+        int min = sc.nextInt(); 
+            System.out.println("Max number:");
+        int max = sc.nextInt(); 
+        Random rand = new Random();
+        if (min<2000000000)
+        {
+           if (max<2000000000)
+           {
+            int result = rand.nextInt((max - min) + 1) + min; 
+                System.out.println("Random number: " + result); 
+           }
+           else
+           {
+           System.out.println("error number can't be more than 2bil");
+           RNG();
+           }
+               
+        }   
+         else
+         {
+             System.out.println("error number can't be more than 2bil");
+             RNG();
+         }
+}
+public static void magic8Ball() 
+{
+
+
+     int min = 1 ;
+            
+        int max = 8 ;
+        Random rand = new Random();
+       
+            int result = rand.nextInt((max - min) + 1) + min; 
+          if (result== 1)
+          System.out.println("Yes");
+          else if (result==2)
+          System.out.println("No");
+          else if (result==3)
+          System.out.println("Maybe");
+          else if (result==4)
+          System.out.println("Not now");
+          else if (result==5)
+          System.out.println("Think about it");
+          else if (result==6)
+          System.out.println("Ask again later");
+          else if (result==7)
+          System.out.println("Don't count on it");
+          else if (result==8)
+          System.out.println("Most likely");
+}
     
     public static void rockPaperScissors() { 
         Scanner sc2 = new Scanner(System.in); 
@@ -281,6 +357,4 @@ public class Main {
             System.out.println("User Not Found");
         }
 
-        return type;    
-    } 
-}
+        return type; 
