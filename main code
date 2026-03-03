@@ -83,6 +83,7 @@ public class Main {
                     System.out.println("1. Calculator"); 
                     System.out.println("2. Rock Paper Scissors"); 
                     System.out.println("3. Black Jack"); 
+                    System.out.println("4. Random Number Generator");
                                 
                     int action = sc.nextInt(); 
                         
@@ -94,6 +95,9 @@ public class Main {
                     } 
                     else if (action == 3) {
                         blackjack();
+                    }
+                    else if (action == 4) {
+                        RNG();
                     }
                     else { 
                         System.out.println("Invalid option."); 
@@ -303,4 +307,6 @@ Scanner sc = new Scanner(System.in);
         return type;    
     } 
 }
+
+
 
