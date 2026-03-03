@@ -149,13 +149,29 @@ public static void RNG()
 {
 Scanner sc = new Scanner(System.in); 
     System.out.println("Min number:"); 
-        double min = sc.nextInt(); 
+        int min = sc.nextInt(); 
             System.out.println("Max number:");
-        double max = sc.nextInt(); 
+        int max = sc.nextInt(); 
         Random rand = new Random();
-         double result = rand.nextdouble((max - min) + 1) + min; 
+        if (min<2000000000)
+        {
+           if (max<2000000000)
+           {
+         int result = rand.nextInt((max - min) + 1) + min; 
             System.out.println("Random number: " + result); 
-    
+           }
+           else
+           {
+           System.out.println("error number can't be more than 2bil");
+           RNG();
+           }
+               
+        }   
+         else
+         {
+             System.out.println("error number can't be more than 2bil");
+             RNG();
+         }
 }
     
     public static void rockPaperScissors() { 
